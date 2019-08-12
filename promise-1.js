@@ -1,4 +1,4 @@
-/** Callback */
+/** Promise */
 let multiplica = new Promise( ( resolve, reject ) => {
     let num = 2;
     console .log( `Inicia > Valor: ${ num }` );
@@ -7,7 +7,7 @@ let multiplica = new Promise( ( resolve, reject ) => {
     return new Promise( ( resolve, reject ) => {
         setTimeout( () => {
             console .log( 'Procesando...' );
-            return resolve( [ num, num * num ] );
+            Math .pow( num, 2 ) === num * num ? resolve( [ num, num * num ] ) : resolve( new Error( 'El calculo a fallado' ) );
         }, 1000 );
     });
 }). then( ( values ) => {
